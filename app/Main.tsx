@@ -21,15 +21,13 @@ export default function Home({ posts }) {
         </div>
         <div className="w-full">
           <iframe
-            src="https://www.gitch.art/share/yi-echo?color=2da44e"
-            width="1200"
+            src="https://www.gitch.art/api/og/yi-echo?color=2da44e"
+            width="1000"
             height="180"
             frameBorder="0"
-            scrolling="no"
-            className="w-full max-w-full"
             title="GitHub Stats"
-            loading="lazy"
-          />
+            scrolling="no"
+          ></iframe>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
