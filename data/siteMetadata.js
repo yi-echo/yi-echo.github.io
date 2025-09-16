@@ -3,7 +3,8 @@ const siteMetadata = {
   title: 'Record life, share technology....',
   author: '沧海一粟',
   headerTitle: '易echo',
-  description: 'Full-stack developer @echo, Building things with code. Crafting code, pixel by pixel. Code. Ship. Repeat.',
+  description:
+    'Full-stack developer @echo, Building things with code. Crafting code, pixel by pixel. Code. Ship. Repeat.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
@@ -11,8 +12,8 @@ const siteMetadata = {
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
+  email: 'chenyilong916002@gmail.com',
+  github: 'https://github.com/yi-echo',
   x: 'https://twitter.com/x',
   // twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',

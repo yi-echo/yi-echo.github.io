@@ -3,8 +3,9 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
+import BlogImage from '@/components/BlogImage'
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 8
 
 export default function Home({ posts }) {
   return (
@@ -18,10 +19,22 @@ export default function Home({ posts }) {
             {siteMetadata.description}
           </p>
         </div>
+        <div className="w-full">
+          <iframe
+            src="https://www.gitch.art/share/yi-echo?color=2da44e"
+            width="1200"
+            height="180"
+            frameBorder="0"
+            scrolling="no"
+            className="w-full max-w-full"
+            title="GitHub Stats"
+            loading="lazy"
+          />
+        </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
           {posts.slice(0, MAX_DISPLAY).map((post) => {
-            const { slug, date, title, summary, tags } = post
+            const { slug, date, title, summary, tags, images } = post
             return (
               <li key={slug} className="py-12">
                 <article>
@@ -30,6 +43,11 @@ export default function Home({ posts }) {
                       <dt className="sr-only">Published on</dt>
                       <dd className="text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
                         <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                        {images && images.length > 0 && (
+                          <div className="p-2">
+                            <BlogImage src={images[0]} alt={title || 'Blog post image'} />
+                          </div>
+                        )}
                       </dd>
                     </dl>
                     <div className="space-y-5 xl:col-span-3">
