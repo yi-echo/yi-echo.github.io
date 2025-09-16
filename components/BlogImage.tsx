@@ -24,17 +24,17 @@ export default function BlogImage({ src, alt, className = '' }: BlogImageProps) 
   }
 
   return (
-    <div className={`relative h-48 w-full overflow-hidden rounded-lg ${className}`}>
+    <div className={`relative w-full overflow-hidden rounded-lg ${className}`} style={{ aspectRatio: '16/9' }}>
       {isLoading && (
-        <div className="absolute inset-0 flex animate-pulse items-center justify-center bg-gray-200">
-          <span className="text-sm text-gray-500">加载中...</span>
+        <div className="absolute inset-0 flex animate-pulse items-center justify-center bg-gray-200 dark:bg-gray-700">
+          <span className="text-sm text-gray-500 dark:text-gray-400">加载中...</span>
         </div>
       )}
       <Image
         src={src}
         alt={alt}
         fill
-        className="object-cover"
+        className="object-cover transition-transform duration-300 hover:scale-105"
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         onLoad={() => setIsLoading(false)}
         onError={() => {

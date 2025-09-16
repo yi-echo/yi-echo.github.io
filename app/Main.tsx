@@ -19,15 +19,15 @@ export default function Home({ posts }) {
             {siteMetadata.description}
           </p>
         </div>
-        <div className="w-full">
-          <iframe
-            src="https://www.gitch.art/api/og/yi-echo?color=2da44e"
-            width="1000"
-            height="180"
-            frameBorder="0"
-            title="GitHub Stats"
-            scrolling="no"
-          ></iframe>
+        <div className="w-full overflow-hidden rounded-lg">
+          <div className="relative w-full" style={{ paddingBottom: '18%' }}>
+            <iframe
+              src="https://www.gitch.art/api/og/yi-echo?color=2da44e"
+              className="absolute top-0 left-0 w-full h-full border-0"
+              title="GitHub Stats"
+              loading="lazy"
+            />
+          </div>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
@@ -36,19 +36,28 @@ export default function Home({ posts }) {
             return (
               <li key={slug} className="py-12">
                 <article>
-                  <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
-                    <dl>
-                      <dt className="sr-only">Published on</dt>
-                      <dd className="text-base leading-6 font-medium text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                        {images && images.length > 0 && (
-                          <div className="p-2">
-                            <BlogImage src={images[0]} alt={title || 'Blog post image'} />
-                          </div>
-                        )}
-                      </dd>
-                    </dl>
-                    <div className="space-y-5 xl:col-span-3">
+                  <div className="space-y-4 xl:grid xl:grid-cols-12 xl:items-start xl:space-y-0 xl:gap-8">
+                    {/* 左侧：日期和图片 */}
+                    <div className="xl:col-span-3">
+                      <dl>
+                        <dt className="sr-only">Published on</dt>
+                        <dd className="text-base leading-6 font-medium text-gray-500 dark:text-gray-400 mb-4">
+                          <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
+                        </dd>
+                      </dl>
+                      {images && images.length > 0 && (
+                        <div className="hidden xl:block">
+                          <BlogImage 
+                            src={images[0]} 
+                            alt={title || 'Blog post image'} 
+                            className="w-full"
+                          />
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* 右侧：标题、标签、摘要和链接 */}
+                    <div className="space-y-5 xl:col-span-9">
                       <div className="space-y-6">
                         <div>
                           <h2 className="text-2xl leading-8 font-bold tracking-tight">
@@ -59,12 +68,24 @@ export default function Home({ posts }) {
                               {title}
                             </Link>
                           </h2>
-                          <div className="flex flex-wrap">
+                          <div className="flex flex-wrap gap-2 mt-2">
                             {tags.map((tag) => (
                               <Tag key={tag} text={tag} />
                             ))}
                           </div>
                         </div>
+                        
+                        {/* 移动端图片显示 */}
+                        {images && images.length > 0 && (
+                          <div className="xl:hidden">
+                            <BlogImage 
+                              src={images[0]} 
+                              alt={title || 'Blog post image'} 
+                              className="w-full"
+                            />
+                          </div>
+                        )}
+                        
                         <div className="prose max-w-none text-gray-500 dark:text-gray-400">
                           {summary}
                         </div>
