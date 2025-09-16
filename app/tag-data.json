@@ -1,7 +1,8 @@
 {
+  "react": 1,
+  "base-build": 2,
+  "mini": 2,
   "vue3": 1,
-  "base-build": 1,
-  "mini": 1,
   "markdown": 1,
   "code": 1,
   "features": 1,
@@ -11,6 +12,7 @@
   "github": 1,
   "guide": 5,
   "tailwind": 3,
+  "hello": 1,
   "holiday": 1,
   "canada": 1,
   "images": 1,
