@@ -2,7 +2,7 @@
 const siteMetadata = {
   title: 'Record life, share technology....',
   author: '沧海一粟',
-  headerTitle: '易echo',
+  headerTitle: 'NeonAIx',
   description:
     'Full-stack developer @echo, Building things with code. Crafting code, pixel by pixel. Code. Ship. Repeat.',
   language: 'en-us',
